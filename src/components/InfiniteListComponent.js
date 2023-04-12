@@ -10,14 +10,14 @@ export default function InfiniteListComponent() {
   const [requestIndex, setRequestIndex] = useState(0);
 
 
-const getAllOrganizations = () => {
-  axios.get(`${apiUrl}${requestIndex}`
-  )
-  .then(response => setData([...data, ...response.data]))
-  .then(data => console.log(data))
-  .then(() => setRequestIndex(requestIndex+pageStep))
-  .catch(error => console.error(`Error: ${error}`));
-}
+  const getAllOrganizations = () => {
+    axios.get(`${apiUrl}${requestIndex}`
+    )
+    .then(response => setData([...data, ...response.data]))
+    .then(data => console.log(data))
+    .then(() => setRequestIndex(requestIndex+pageStep))
+    .catch(error => console.error(`Error: ${error}`));
+  }
 
   useEffect(() => {
     getAllOrganizations();
